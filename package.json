@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "dependencies": {
+    "github-integration": "^1.0.0",
+    "github-webhook-handler": "^0.6.0"
+  }
+}
