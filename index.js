@@ -14,10 +14,10 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT || 7777);
 
 var fs = require('fs');
-var createIntegration = require('github-integration');
+var createApp = require('github-app');
 
-var integration = createIntegration({
-  id: process.env.INTEGRATION_ID,
+var app = createApp({
+  id: process.env.APP_ID,
   cert: process.env.PRIVATE_KEY || fs.readFileSync('private-key.pem')
 });
 
@@ -29,7 +29,7 @@ handler.on('issues', function (event) {
   console.log("EVENT", event);
   if (event.payload.action === 'opened') {
     var installation = event.payload.installation.id;
-    integration.asInstallation(installation).then(function (github) {
+    app.asInstallation(installation).then(function (github) {
       github.issues.createComment({
         owner: event.payload.repository.owner.login,
         repo: event.payload.repository.name,

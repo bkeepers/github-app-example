@@ -56,24 +56,24 @@ A GitHub App is a first-class actor on GitHub, like a user (e.g. [@defunkt](http
 
 Unlike a user, an app doesn't sign in through the website (it is a robot, after all). Instead, it authenticates by signing a token with a private key, and then requesting an access token to perform actions on behalf of a specific installation. The [docs](https://developer.github.com/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) cover this in more detail, but I'm skimming over it because we don't really need to know the implementation details.
 
-The [github-integration] module handles all the authentication details for us. It returns and instance of the [github][node-github] Node.js module, which swraps the [GitHub API](https://developer.github.com/v3/) and allows you to do almost anything programmatically that you can do through a web browser. Install it on your project with:
+The [github-app] module handles all the authentication details for us. It returns and instance of the [github][node-github] Node.js module, which swraps the [GitHub API](https://developer.github.com/v3/) and allows you to do almost anything programmatically that you can do through a web browser. Install it on your project with:
 
 ```
-$ npm install --save github-integration
+$ npm install --save github-app
 ```
 
 Configuring the app requires the `id` of the app and the private key certificate, which we'll get later.
 
 ```js
-var createIntegration = require('github-integration');
+var createApp = require('github-app');
 
-var integration = createIntegration({
+var app = createApp({
   id: process.env.APP_ID,
   cert: require('fs').readFileSync('private-key.pem')
 });
 ```
 
-An app can request to authenticate as a specific installation by calling `integration.asInstallation(id)` and passing the _installation_ id as an argument. Every webhook payload from an installation includes the id, so for now we don't have to worry about how to get it or where to save it.
+An app can request to authenticate as a specific installation by calling `app.asInstallation(id)` and passing the _installation_ id as an argument. Every webhook payload from an installation includes the id, so for now we don't have to worry about how to get it or where to save it.
 
 Our app is complete by updating the webhook handler to authenticate as the installation and then perform an action using the [github][node-github] API client.
 
@@ -82,7 +82,7 @@ handler.on('issues', function (event) {
   if (event.payload.action === 'opened') {
     var installation = event.payload.installation.id;
 
-    integration.asInstallation(installation).then(function (github) {
+    app.asInstallation(installation).then(function (github) {
       github.issues.createComment({
         owner: event.payload.repository.owner.login,
         repo: event.payload.repository.name,
@@ -113,11 +113,11 @@ This example is about the simplest app imaginable, and it isn't terribly useful.
 Apps don't have to wait for a webhook to take action.
 
 ```js
-handler.on('integration_installation', function (event) {
+handler.on('installation', function (event) {
   if (event.payload.action == 'created') {
-    console.log("Integration installed", event.payload.installation);
+    console.log("App installed", event.payload.installation);
   } else if (event.payload.action == 'deleted') {
-    console.log("Integration uninstalled", event.payload.installation);
+    console.log("App uninstalled", event.payload.installation);
   }
 });
 ```
