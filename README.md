@@ -56,7 +56,7 @@ A GitHub App is a first-class actor on GitHub, like a user (e.g. [@defunkt](http
 
 Unlike a user, an app doesn't sign in through the website (it is a robot, after all). Instead, it authenticates by signing a token with a private key, and then requesting an access token to perform actions on behalf of a specific installation. The [docs](https://developer.github.com/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) cover this in more detail, but I'm skimming over it because we don't really need to know the implementation details.
 
-The [github-app] module handles all the authentication details for us. It returns and instance of the [github][node-github] Node.js module, which swraps the [GitHub API](https://developer.github.com/v3/) and allows you to do almost anything programmatically that you can do through a web browser. Install it on your project with:
+The [github-app] module handles all the authentication details for us. It returns and instance of the [github][node-github] Node.js module, which wraps the [GitHub API](https://developer.github.com/v3/) and allows you to do almost anything programmatically that you can do through a web browser. Install it on your project with:
 
 ```
 $ npm install --save github-app
