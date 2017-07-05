@@ -62,7 +62,7 @@ Congratulations, you are all set to receive requests, which is exactly what a we
 
 Let’s [create a GitHub App](https://github.com/settings/apps/new) (the page will ask you to login to your GitHub account or confirm your password).
 
-Set the **GitHub App Name** to anything you like, e.g. "welcome-bot". Then set the **Webhook URL** to the URL of your glitch app when you click on "show", it will be something like https://adjective-noun.glitch.com. Set both **Hompage URL** and **User authorization callback URL** to "https://example.com/", it can be changed later.
+Set the **GitHub App Name** to anything you like, e.g. "welcome-bot". Then set the **Webhook URL** to the URL of your glitch app when you click on "show", it will be something like https://adjective-noun.glitch.me. Set both **Hompage URL** and **User authorization callback URL** to "https://example.com/", it can be changed later.
 
 ![](/../master/assets/app-register.png?raw=true "Register a GitHub App")
 
