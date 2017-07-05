@@ -52,7 +52,7 @@ Now we have a node server that can receive webhooks, so our app knows when somet
 
 ## Integrating with GitHub
 
-A GitHub App is a first-class actor on GitHub, like a user (e.g. [@defunkt](https://github/defunkt)) or a organization (e.g. [@github](https://github.com/github)). That means it can be given access to repositories and perform actions through the API like [commenting on an issue](https://developer.github.com/v3/issues/comments/#create-a-comment) or [creating a status](https://developer.github.com/v3/repos/statuses/#create-a-status). The app is given access to a repository or repositories by being "installed" on a user or organization account.
+A GitHub App is a first-class actor on GitHub, like a user (e.g. [@defunkt](https://github.com/defunkt)) or a organization (e.g. [@github](https://github.com/github)). That means it can be given access to repositories and perform actions through the API like [commenting on an issue](https://developer.github.com/v3/issues/comments/#create-a-comment) or [creating a status](https://developer.github.com/v3/repos/statuses/#create-a-status). The app is given access to a repository or repositories by being "installed" on a user or organization account.
 
 Unlike a user, an app doesn't sign in through the website (it is a robot, after all). Instead, it authenticates by signing a token with a private key, and then requesting an access token to perform actions on behalf of a specific installation. The [docs](https://developer.github.com/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) cover this in more detail, but I'm skimming over it because we don't really need to know the implementation details.
 
@@ -121,9 +121,9 @@ handler.on('installation', function (event) {
   }
 });
 ```
-[github-configurer](https://github.com/bkeepers/github-configurer)
 
 https://developer.github.com/apps/
 
 [github-webhook-handler]: https://github.com/rvagg/github-webhook-handler
 [node-github]: https://github.com/mikedeboer/node-github
+[github-app]: https://github.com/probot/github-app
