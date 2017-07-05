@@ -64,7 +64,11 @@ Let’s [create a GitHub App](https://github.com/settings/apps/new) (the page wi
 
 Set the **GitHub App Name** to anything you like, e.g. "welcome-bot". Then set the **Webhook URL** to the URL of your glitch app when you click on "show", it will be something like https://adjective-noun.glitch.com. Set both **Hompage URL** and **User authorization callback URL** to "https://example.com/", it can be changed later.
 
+![](/../master/assets/app-register.png?raw=true "Register a GitHub App")
+
 Scroll down to Permissions: Issues and change the drop-down from "No access" to "Read & Write" and check the "Issues" checkbox.
+
+![](/../master/assets/app-permissions.png?raw=true "GitHub App Permissions")
 
 You can ignore all other fields. Scroll to the end of the page and click "Create GitHub App".
 
@@ -73,6 +77,8 @@ Congratulations, you created a GitHub App. 🎊
 ## Install your GitHub app.
 
 Click on the green "install" button, you will get redirected to a page where you can select a repository on which you want to enable your bot. Select "Only select repositories" and activate it on one of your repositories for testing. You can also [create a new repository](github.com/new) first.
+
+![](/../master/assets/app-install.png?raw=true "Install GitHub App")
 
 Before pressing the green "Install" button, make sure you watch the logs of your Glitch app. Now press "Install". In the logs you should now see something like this (shortened for readability)
 
