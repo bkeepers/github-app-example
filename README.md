@@ -7,6 +7,11 @@ You will learn how to create a GitHub app and how to utilizes GitHub’s webhook
 1. [What is a GitHub App?](#what-is-a-github-app)
 2. [What is a Webhook?](#what-is-a-webhook)
 3. [Receive a webhook?](#receive-a-webhook)
+4. [Create a GitHub app](#create-a-github-app)
+5. [Install your GitHub app.](#install-your-github-app)
+6. [Securing your server.](#securing-your-server)
+7. [Commenting with your GitHub App](#commenting-with-your-github-app)
+8. [Questions? Feedback?](#questions-feedback)
 
 ## What is a GitHub App?
 
