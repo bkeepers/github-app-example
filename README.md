@@ -76,7 +76,7 @@ Congratulations, you created a GitHub App. 🎊
 
 ## Install your GitHub app.
 
-Click on the green "install" button, you will get redirected to a page where you can select a repository on which you want to enable your bot. Select "Only select repositories" and activate it on one of your repositories for testing. You can also [create a new repository](github.com/new) first.
+Click on the green "install" button, you will get redirected to a page where you can select a repository on which you want to enable your bot. Select "Only select repositories" and activate it on one of your repositories for testing. You can also [create a new repository](https://github.com/new) first.
 
 ![](/../master/assets/app-install.png?raw=true "Install GitHub App")
 
