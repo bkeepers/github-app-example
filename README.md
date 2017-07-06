@@ -32,6 +32,7 @@ In order to receive a webhook, you have to create a Node.js server and make it a
 A very simple way to do that is to use [Glitch](glitch.com). With Glitch, you can create a Node.js application right in your browser and it will be executed for you each time you make a change. We will start out with this server:
 
 ```js
+// http is a standard module that comes with Node.js
 const http = require('http')
 
 http.createServer(handleRequest).listen(3000)
@@ -115,10 +116,13 @@ Open the `package.json` file in your glitch app. Click on the "Add package" drop
 Now open the `server.js` file and change its content
 
 ```js
+// values for the enviroment variables set in the .env file can be accesed at proces.env.VARIABLE_NAME
+const secret = process.env.WEBHOOK_SECRET
+
 const http = require('http')
 const webHookHandler = require('github-webhook-handler')({
   path: '/',
-  secret: process.env.WEBHOOK_SECRET
+  secret: secret
 })
 http.createServer(handleRequest).listen(3000)
 
@@ -127,7 +131,11 @@ webHookHandler.on('issues', (event) => {
 })
 
 function handleRequest (request, response) {
+  // ignore all requests that aren’t POST requests
   if (request.method !== 'POST') return response.end('ok')
+
+  // here we pass the current request & response to the webHookHandler we created
+  // on top. If the request is valid, then the "issue" above handler is called
   webHookHandler(request, response, () => response.end('ok'))
 }
 ```
@@ -234,8 +242,11 @@ function handleIssue (robot, context) {
 Isn’t that cool? Make sure to create the `.data/private-key.pem` file as described above and update the `.env` file (replace values for `WEBHOOK_SECRET` and `APP_ID`)
 
 ```
+# you need to set NODE_ENV=production, otherwise probot will try to start localtunnel
 NODE_ENV=production
+# By default, proobot is looking for the file at /private-key.pem. We need to set it to our custom location
 PRIVATE_KEY_PATH=.data/private-key.pem
+
 WEBHOOK_SECRET=yoursecrethere
 APP_ID=123
 ```
