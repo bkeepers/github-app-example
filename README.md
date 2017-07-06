@@ -180,10 +180,12 @@ Now we need to install two other libraries: [github-app](https://github.com/prob
 Now open the `server.js` file and change its content
 
 ```js
+const secret = process.env.WEBHOOK_SECRET
+
 const http = require('http')
 const webHookHandler = require('github-webhook-handler')({
   path: '/',
-  secret: process.env.WEBHOOK_SECRET
+  secret: secret
 })
 const app = require('github-app')({
   id: process.env.APP_ID,
