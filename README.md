@@ -143,7 +143,7 @@ function handleRequest (request, response) {
 
 Not only is the code much more readable now, it is also secure and ready to go.
 
-Create another comment on the repository you activated your GitHub app for. You should see this in the logs
+Create another issue on the test repository you activated your GitHub app for. You should see this in the logs
 
 ```
 Received issue event for "…"
@@ -215,7 +215,7 @@ function handleRequest (request, response) {
 }
 ```
 
-Create another comment on your test repository. Welcome to the robot uprising 🤖
+Create another issue on your test repository. Refresh the issue page if neccessary and you should see the "Welcome to the robot uprising." comment 🤖
 
 If something doesn’t work as expected, compare it to our [github-app-example](https://glitch.com/edit/#!/github-app-example). Click on "Remix this" to use it as a template for your own app. Make sure to change the **Webhook URL** in your GitHub App settings to the URL of the new Glitch app and to add `WEBHOOK_SECRET=` & `APP_ID` to your new app’s `.env` file. You also need to create the `.data/private-key.pem` file as described above.
 
