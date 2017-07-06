@@ -208,6 +208,42 @@ Create another comment on your test repository. Welcome to the robot uprising �
 
 If something doesn’t work as expected, compare it to our [github-app-example](https://glitch.com/edit/#!/github-app-example). Click on "Remix this" to use it as a template for your own app. Make sure to change the **Webhook URL** in your GitHub App settings to the URL of the new Glitch app and to add `WEBHOOK_SECRET=` & `APP_ID` to your new app’s `.env` file. You also need to create the `.data/private-key.pem` file as described above.
 
+## Bonus: Probot!
+
+We created a framework called [probot](https://probot.github.io/) which combines [github-webhook-handler](https://github.com/rvagg/github-webhook-handler) and [github](https://github.com/mikedeboer/node-github). Using `probot` you can
+simplify the code to just this:
+
+```js
+module.exports = function (robot) {
+  robot.on('issues', handleIssue.bind(null, robot))
+}
+
+async function handleIssue (robot, context) {
+  const api = context.github
+  const {installation, repository, issue} = context.payload
+
+  api.issues.createComment({
+    owner: repository.owner.login,
+    repo: repository.name,
+    number: issue.number,
+    body: 'Welcome to the robot uprising.'
+  })
+}
+```
+
+Isn’t that cool? Make sure to create the `.data/private-key.pem` file as described above and update the `.env` file (replace values for `WEBHOOK_SECRET` and `APP_ID`)
+
+```
+NODE_ENV=production
+PRIVATE_KEY_PATH=.data/private-key.pem
+WEBHOOK_SECRET=yoursecrethere
+APP_ID=123
+```
+
+Then update your `package.json`. You only need `probot` as dependency, the others can be removed. You also need to update the "start" script to `probot run ./server.js`.
+
+Compare your Glitch app to our [probot-example](https://glitch.com/edit/#!/probot-example) if you run into any trouble.
+
 ## Questions? Feedback?
 
 If there is anything you think could be improved in this tutorial, please send a pull request. You can do so right from github.com by [editing this README.md file](https://github.com/gr2m/github-app-example/blob/master/README.md).
