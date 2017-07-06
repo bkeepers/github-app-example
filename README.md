@@ -157,7 +157,7 @@ A GitHub App is a first-class actor on GitHub. Just like a GitHub user (e.g. [@d
 
 Unlike a user, a GitHub App does not sign in through the website (it is a robot, after all). Instead, it authenticates by signing a token with a private key, and then requesting an access token to perform actions on behalf of a specific installation. You don’t need to worry about all that, we will use another module which does the hard lifting for us, but in case you do care, learn all [about authentication options for GitHub Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/).
 
-First, you need to generate a private key for your GitHub App. Open the Settings page (Settings → GitHub Apps → _Select your bot_), scroll down to "Private key" and press the "Generate private key" button. Open the downloaded `.pem` file with a text editor. Copy its content.
+First, you need to generate a private key for your GitHub App. Open the Settings page (Settings → GitHub Apps → _Select your bot_), scroll down to "Private key" and press the "Generate private key" button. Open the downloaded `.pem` file with a text editor. Copy its content (including the first and last line starting with `-----`).
 
 On your Glitch app, press the "+ New file" button and enter ".data/private-key.pem" as its path (the "." at the beginning is important! All files in the ".data" folder cannot be seen by others and are therefore secure). Paste the content from the text editor.
 
