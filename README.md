@@ -11,6 +11,7 @@ You will learn how to create a GitHub app and how to utilizes GitHub’s webhook
 5. [Install your GitHub app.](#install-your-github-app)
 6. [Securing your server.](#securing-your-server)
 7. [Commenting with your GitHub App](#commenting-with-your-github-app)
+8. [## Bonus: Probot!](#bonus-probot)
 8. [Questions? Feedback?](#questions-feedback)
 
 ## What is a GitHub App?
