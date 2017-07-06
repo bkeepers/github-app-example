@@ -104,7 +104,7 @@ Before moving on, we have to make sure nobody else but our GitHub App can send u
 
 In order to secure our server we can set a secret that only our GitHub app and our server know. Open the settings page for your GitHub App (Settings → GitHub Apps → _Select your bot_). Now enter a secure, random text into the field **Webhook secret**. Remember it.
 
-On your Glitch app, open the `.env` file. This is where we can put secrets without others having access to it. Add a line (make sure to replace `yoursecrethere` with your own secret)
+On your Glitch app, open the `.env` file. This is where we can put secrets without others having access to it. Remove all the content and replice it with the line below (make sure to replace `yoursecrethere` with your own secret)
 
 ```
 WEBHOOK_SECRET=yoursecrethere
