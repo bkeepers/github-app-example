@@ -30,7 +30,7 @@ Find a list of [all available webhooks on GitHub](https://developer.github.com/w
 
 In order to receive a webhook, you have to create a Node.js server and make it accessible at a URL that GitHub can reach.
 
-A very simple way to do that is to use [Glitch](glitch.com). With Glitch, you can create a Node.js application right in your browser and it will be executed for you each time you make a change. We will start out with this server:
+A very simple way to do that is to use [Glitch](https://glitch.com). With Glitch, you can create a Node.js application right in your browser and it will be executed for you each time you make a change. We will start out with this server:
 
 ```js
 // http is a standard module that comes with Node.js
