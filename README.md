@@ -218,7 +218,7 @@ module.exports = function (robot) {
   robot.on('issues', handleIssue.bind(null, robot))
 }
 
-async function handleIssue (robot, context) {
+function handleIssue (robot, context) {
   const api = context.github
   const {installation, repository, issue} = context.payload
 
