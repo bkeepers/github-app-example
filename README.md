@@ -167,13 +167,13 @@ Now you need to add your GitHub App’s id to the `.env` file, you find the id o
 APP_ID=123
 ```
 
-Now we need to install two other libraries: [github-app](https://github.com/probot/github-app) and [github](https://github.com/mikedeboer/node-github). Open `package.json` and add them as dependencies. The `"dependencies"` key should now look something like this
+Now we need to install two other libraries: [github-app](https://github.com/probot/github-app) and [github rest client](https://www.npmjs.com/package/@octokit/rest). Open `package.json` and add them as dependencies. The `"dependencies"` key should now look something like this
 
 ```json
   "dependencies": {
     "github-webhook-handler": "^0.6.0",
     "github-app": "^3.0.0",
-    "github": "^9.2.0"
+    "@octokit/rest": "^18.0.2"
   },
 ```
 
